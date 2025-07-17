@@ -1,0 +1,441 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.header h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+}
+
+.chat-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.chat-messages {
+    padding: 20px;
+    min-height: 400px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 20px;
+    animation: messageSlide 0.5s ease-out;
+}
+
+.bot-message .message-content {
+    background: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 15px 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.user-message .message-content {
+    background: #3498db;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    margin-left: auto;
+}
+
+.input-area {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    background: #f8f9fa;
+}
+
+.question-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.question-container label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.question-container input,
+.question-container select {
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.question-container input:focus,
+.question-container select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.option-btn {
+    padding: 12px 20px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1em;
+}
+
+.option-btn:hover {
+    background: #f0f8ff;
+    border-color: #3498db;
+    transform: translateY(-2px);
+}
+
+.option-btn.selected {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+#nextBtn {
+    padding: 12px 30px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-end;
+}
+
+#nextBtn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+#nextBtn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.result-container {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-header h2 {
+    color: #2c3e50;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.loan-result {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.loan-amount h3 {
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.amount-display {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px 0;
+    font-size: 3em;
+    font-weight: 700;
+    animation: pulse 2s infinite;
+}
+
+.loan-amount p {
+    font-size: 1.2em;
+    color: #7f8c8d;
+}
+
+.property-recommendations,
+.land-recommendations {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.property-recommendations h3,
+.land-recommendations h3 {
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.property-grid,
+.land-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.property-card,
+.land-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.property-card:hover,
+.land-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.property-image,
+.land-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.property-details,
+.land-details {
+    padding: 20px;
+}
+
+.property-details h4,
+.land-details h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.property-details p,
+.land-details p {
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.property-price,
+.land-price {
+    color: #e74c3c;
+    font-weight: 700;
+    font-size: 1.3em;
+    margin: 10px 0;
+}
+
+.contact-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.contact-btn:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+.restart-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.restart-btn {
+    padding: 15px 40px;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes messageSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .header p {
+        font-size: 1em;
+    }
+    
+    .chat-messages {
+        min-height: 300px;
+        max-height: 400px;
+    }
+    
+    .bot-message .message-content,
+    .user-message .message-content {
+        max-width: 95%;
+    }
+    
+    .amount-display {
+        font-size: 2em;
+        padding: 20px;
+    }
+    
+    .property-grid,
+    .land-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .options-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .question-container {
+        gap: 10px;
+    }
+    
+    #nextBtn {
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 20px 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    .input-area {
+        padding: 15px;
+    }
+    
+    .loan-result {
+        padding: 20px;
+    }
+    
+    .property-recommendations,
+    .land-recommendations {
+        padding: 20px;
+    }
+    
+    .amount-display {
+        font-size: 1.8em;
+        padding: 15px;
+    }
+}
